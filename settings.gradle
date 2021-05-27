@@ -1,0 +1,2 @@
+rootProject.name = "Everynet Field Test"
+include ':app'

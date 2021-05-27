@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Everynet Field Test</string>
+    <string-array name="regions">
+        <item>ATC</item>
+        <item>AP</item>
+        <item>EU</item>
+        <item>US</item>
+    </string-array>
+
+</resources>
