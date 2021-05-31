@@ -15,14 +15,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        android:contentDescription="@string/everynet_logo" />
 
     <TextView
         android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Everynet Field Test"
-        android:textSize="30dp"
+        android:text="@string/appName"
+        android:textSize="30sp"
         android:textColor="@color/pink"
         android:layout_margin="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -44,9 +44,9 @@
             android:inputType="textEmailAddress"
             android:maxLines="1"
             android:lines="1"
-            android:hint="Email"
+            android:hint="@string/email"
             android:layout_margin="15dp"
-            />
+            android:autofillHints="" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,9 +65,9 @@
             android:inputType="textPassword"
             android:maxLines="1"
             android:lines="1"
-            android:hint="Password"
+            android:hint="@string/password"
             android:layout_margin="15dp"
-            />
+            android:autofillHints="" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,8 +75,8 @@
         android:id="@+id/loginRegionText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Region"
-        android:textSize="15dp"
+        android:text="@string/region"
+        android:textSize="15sp"
         android:textColor="@color/black"
         android:layout_margin="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -98,21 +98,20 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:textSize="15dp"
+        android:text="@string/login"
+        android:textSize="15sp"
         android:textColor="@color/white"
         android:layout_margin="15dp"
-        android:onClick="login"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loginRegion"
         />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/loginMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textColor="@color/black"
         android:layout_margin="15dp"
         app:layout_constraintLeft_toLeftOf="parent"

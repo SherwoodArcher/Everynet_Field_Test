@@ -6,5 +6,24 @@
         <item>EU</item>
         <item>US</item>
     </string-array>
+    <string name="error_permissions">You don\'t have the necessary permissions use this application</string>
+    <string name="ok">OK</string>
+    <string name="nok">Error</string>
+    <string name="login">Login</string>
+    <string name="logout">Log Out</string>
+    <string name="search">Search</string>
+    <string name="device_eui">Test Device EUI</string>
+    <string name="everynet_logo">Everynet Logo</string>
+    <string name="appName">Everynet Field Test</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="region">Region</string>
+    <string name="mac">Device EUI (MAC) of 16 digits</string>
+    <string name="noDevice">Device not found</string>
+    <string name="noBand">Band not found</string>
+    <string name="startTest">Start Test</string>
+    <string name="deviceEuiSize">Device EUI incorrect length</string>
+    <string name="bandT">Band: </string>
+    <string name="dataratesT">Datarates: </string>
 
 </resources>
