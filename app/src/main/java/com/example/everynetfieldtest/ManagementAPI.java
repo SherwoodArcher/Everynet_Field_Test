@@ -10,41 +10,41 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class API {
-    private static API instance = null;
+public class ManagementAPI {
+    private static ManagementAPI instance = null;
     private static final String prefixURL = "https://ns.";
     private static final String middlefixURL = ".everynet.io/api/v1.0/";
 
     public RequestQueue requestQueue;
 
-    private API(Context context)
+    private ManagementAPI(Context context)
     {
         requestQueue = Volley.newRequestQueue(context.getApplicationContext());
     }
 
-    public static synchronized API getInstance(Context context)
+    public static synchronized ManagementAPI getInstance(Context context)
     {
         if (null == instance)
-            instance = new API(context);
+            instance = new ManagementAPI(context);
         return instance;
     }
 
-    public static synchronized API getInstance()
+    public static synchronized ManagementAPI getInstance()
     {
         if (null == instance)
         {
-            throw new IllegalStateException(API.class.getSimpleName() +
+            throw new IllegalStateException(ManagementAPI.class.getSimpleName() +
                     " is not initialized, call getInstance(...) first");
         }
         return instance;
     }
 
-    public Runnable request(int method, String region, String postfixURL, HashMap param, final Listener<JSONObject> listener, HashMap headers){
+    public Runnable request(int method, String region, String postfixURL, HashMap param, final ManagementAPIListener<JSONObject> managementAPIListener, HashMap headers){
         String url = prefixURL + region + middlefixURL + postfixURL;
         //method Get = 0 Post = 1 Patch = 7
         JsonObjectRequest request = new JsonObjectRequest(method, url, new JSONObject(param),
-                response -> { if(null != response) listener.getResult(response); },
-                error -> { if (null != error.networkResponse) { listener.getResult(null);}
+                response -> { if(null != response) managementAPIListener.getResult(response); },
+                error -> { if (null != error.networkResponse) { managementAPIListener.getResult(null);}
                 }){
                     @Override
                     public HashMap<String, String> getHeaders() {

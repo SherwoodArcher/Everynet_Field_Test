@@ -7,7 +7,7 @@
     tools:context=".TestActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/deviceEuiL"
+        android:id="@+id/device_eui_l"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -19,7 +19,7 @@
         >
 
         <EditText
-            android:id="@+id/deviceEui"
+            android:id="@+id/device_eui"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:inputType="text"
@@ -38,62 +38,62 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="?android:attr/textColorPrimary"
         android:layout_margin="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/deviceEuiL"
+        app:layout_constraintTop_toBottomOf="@id/device_eui_l"
         />
 
     <TextView
-        android:id="@+id/datarates"
+        android:id="@+id/data_rates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="?android:attr/textColorPrimary"
         android:layout_margin="15dp"
         app:layout_constraintLeft_toRightOf="@id/band"
-        app:layout_constraintTop_toBottomOf="@id/deviceEuiL"
+        app:layout_constraintTop_toBottomOf="@id/device_eui_l"
         />
 
     <Button
-        android:id="@+id/startTest"
+        android:id="@+id/start_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/startTest"
         android:textSize="15sp"
-        android:textColor="@color/white"
+        android:textColor="?android:attr/textColorPrimary"
         android:layout_margin="15dp"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/datarates"
+        app:layout_constraintTop_toBottomOf="@id/data_rates"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />
 
     <TextView
-        android:id="@+id/actualDatarate"
+        android:id="@+id/actual_data_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="?android:attr/textColorPrimary"
         android:layout_margin="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/startTest"
+        app:layout_constraintTop_toBottomOf="@id/start_test"
         />
 
     <TextView
-        android:id="@+id/testMessage"
+        android:id="@+id/test_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textColor="@color/black"
+        android:textColor="?android:attr/textColorPrimary"
         android:layout_margin="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/logoutButton"
+        app:layout_constraintBottom_toTopOf="@id/logout_button"
         />
 
     <Button
-        android:id="@+id/logoutButton"
+        android:id="@+id/logout_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/logout"

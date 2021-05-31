@@ -1,5 +1,5 @@
 package com.example.everynetfieldtest;
 
-public interface Listener<T> {
+public interface ManagementAPIListener<T> {
         void getResult(T object);
 }

@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,27 +30,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        API.getInstance(this);
+        ManagementAPI.getInstance(this);
+        Objects.requireNonNull(this.getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
         //To Jump to test view
         //Intent test = new Intent(MainActivity.this,TestActivity.class);
         //startActivity(test);
         //End
 
-        loginRegionS = (Spinner) findViewById(R.id.loginRegion);
+        loginRegionS = findViewById(R.id.login_region);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.regions, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         loginRegionS.setAdapter(adapter);
-        loginMessageT = (TextView) findViewById(R.id.loginMessage);
-        loginB = (Button) findViewById(R.id.loginButton);
+        loginMessageT = findViewById(R.id.login_message);
+        loginB = findViewById(R.id.login_button);
         loginB.setOnClickListener(this::loginClick);
     }
 
     public void loginClick(View view) {
 
-        loginEmailE = (EditText) findViewById(R.id.loginEmail);
-        loginPasswordE = (EditText) findViewById(R.id.loginPassword);
+        loginEmailE = findViewById(R.id.login_email);
+        loginPasswordE = findViewById(R.id.login_password);
         loginEmail = loginEmailE.getText().toString();
         loginPassword = loginPasswordE.getText().toString();
         loginRegion = loginRegionS.getSelectedItem().toString().toLowerCase();
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         HashMap<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json; charset=utf-8");
 
-        API.getInstance().request(1,loginRegion,"auth", postParam, this::login, headers);
+        ManagementAPI.getInstance().request(1,loginRegion,"auth", postParam, this::login, headers);
     }
 
     private void login(JSONObject response){
@@ -85,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                     test.putExtra("loginRegion", loginRegion);
                     test.putExtra("accessToken", accessToken);
                     startActivity(test);
-                    //loginMessage.setText(getString(R.string.ok));
                 } else {
                     loginMessageT.setText(getString(R.string.error_permissions));
                 }
