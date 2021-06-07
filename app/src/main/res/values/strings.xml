@@ -25,5 +25,18 @@
     <string name="deviceEuiSize">Device EUI incorrect length</string>
     <string name="band_t">Band:</string>
     <string name="data_rates_t">Datarates:</string>
+    <string name="gps_settings">GPS settings</string>
+    <string name="gps_settings_message">GPS is not enabled. Do you want to go to settings menu?</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="gps_no_permission">GPS coordinates will be inaccurate</string>
+    <string name="logged_out">Logged out</string>
+    <string name="lat">Lat.:</string>
+    <string name="longi">Long.:</string>
+    <string name="export_csv">Export CSV</string>
+    <string name="export_json">Export JSON</string>
+    <string name="no_permission">Permissions not granted</string>
+    <string name="enable_permission">Please Enable this permission for</string>
+    <string name="dr">DR:</string>
 
 </resources>

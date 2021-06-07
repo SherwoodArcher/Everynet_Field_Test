@@ -2,6 +2,7 @@ package com.example.everynetfieldtest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public TextView loginMessageT;
     public Spinner loginRegionS;
     public Button loginB;
+    public HashMap<String, String> headers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +35,12 @@ public class MainActivity extends AppCompatActivity {
         ManagementAPI.getInstance(this);
         Objects.requireNonNull(this.getSupportActionBar()).hide();
         setContentView(R.layout.activity_main);
-        //To Jump to test view
-        //Intent test = new Intent(MainActivity.this,TestActivity.class);
-        //startActivity(test);
-        //End
 
+        setUpPublicVariables();
+        setUpListeners(this);
+    }
+
+    private void setUpPublicVariables() {
         loginRegionS = findViewById(R.id.login_region);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.regions, android.R.layout.simple_spinner_item);
@@ -45,28 +48,24 @@ public class MainActivity extends AppCompatActivity {
         loginRegionS.setAdapter(adapter);
         loginMessageT = findViewById(R.id.login_message);
         loginB = findViewById(R.id.login_button);
+        headers = new HashMap<>();
+        headers.put("Content-Type", "application/json; charset=utf-8");
+    }
+
+    private void setUpListeners(Context context){
         loginB.setOnClickListener(this::loginClick);
     }
 
     public void loginClick(View view) {
-
         loginEmailE = findViewById(R.id.login_email);
         loginPasswordE = findViewById(R.id.login_password);
         loginEmail = loginEmailE.getText().toString();
         loginPassword = loginPasswordE.getText().toString();
         loginRegion = loginRegionS.getSelectedItem().toString().toLowerCase();
 
-        //Creating JSON
         HashMap<String, String> postParam = new HashMap<>();
-        //postParam.put("email", loginEmail);
-        //postParam.put("password", loginPassword);
-        postParam.put("email", "rinaldo.neto@everynet.com");
-        postParam.put("password", "Krystyn@2");
-
-        //Creating Headers
-        HashMap<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "application/json; charset=utf-8");
-
+        postParam.put("email", loginEmail);
+        postParam.put("password", loginPassword);
         ManagementAPI.getInstance().request(1,loginRegion,"auth", postParam, this::login, headers);
     }
 
